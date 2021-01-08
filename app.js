@@ -13,10 +13,23 @@ userAnswers.forEach((answer, index) => {
     if (answer === correctAnswers[index]) {
         score+= 25;
     }
-    score_value.textContent = score + '%';
-    score_html.classList.remove("d-none");
+    
 });
 
-console.log(score);
+scrollTo(0,0);
+score_html.classList.remove("d-none");
+
+let output = 0;
+const timer = setInterval(() => {
+    score_html.querySelector('span').textContent = output + '%';
+    if(output === score){
+clearInterval(timer);
+    } else {
+        output++;
+    }
+
+
+}, 10);
+
 
 });
